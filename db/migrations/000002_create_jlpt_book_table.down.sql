@@ -1,1 +1,1 @@
-DROP TABLE jlpt_book;
+DROP TABLE jlpt_books;

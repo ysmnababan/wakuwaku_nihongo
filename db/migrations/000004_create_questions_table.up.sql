@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS questions (
     deleted_by VARCHAR,
     quiz_id UUID NOT NULL REFERENCES quizzes(quiz_id) ON DELETE CASCADE,
     question_text VARCHAR NOT NULL,
-    type VARCHAR
+    question_type VARCHAR
 );

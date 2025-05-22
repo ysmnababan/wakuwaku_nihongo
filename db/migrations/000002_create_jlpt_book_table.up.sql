@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS jlpt_book (
+CREATE TABLE IF NOT EXISTS jlpt_books (
     jlpt_book_id UUID PRIMARY KEY,
     created_at BIGINT NOT NULL,
     modified_at BIGINT,
