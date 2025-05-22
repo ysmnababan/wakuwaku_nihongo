@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS answers (
     deleted_by VARCHAR,
     question_id UUID NOT NULL REFERENCES questions(question_id) ON DELETE CASCADE,
     answer_text VARCHAR NOT NULL,
-    is_correct BOOLEAN
+    is_correct BOOLEAN NOT NULL 
 );
