@@ -10,6 +10,7 @@ type Config struct {
 	JWT JWTConfig
 
 	EnableSwagger bool
+	SMTPConfig SMTPConfig
 }
 
 type AppConfig struct {
@@ -49,4 +50,13 @@ type RedisConfig struct {
 	MaxActive       int
 	IdleTimeout     int
 	MaxConnLifeTime int
+}
+
+
+type SMTPConfig struct {
+	Host     string
+	Port     int
+	Username string // AKA access key
+	Password string // AKA secret key
+	Sender   string
 }
