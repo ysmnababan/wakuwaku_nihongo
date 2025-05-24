@@ -12,8 +12,7 @@ type Redis struct {
 	client *redis.Pool
 }
 
-func NewRedis() *Redis {
-	cfg := config.Get().Redis
+func NewRedis(cfg config.RedisConfig) *Redis {
 
 	pool := &redis.Pool{
 		Dial: func() (redis.Conn, error) {
@@ -101,4 +100,13 @@ func (r *Redis) Keys(pattern string) ([]string, error) {
 		_ = conn.Close()
 	}(conn)
 	return redis.Strings(conn.Do("KEYS", pattern))
+}
+
+func (r *Redis) FlushAll() error {
+	conn := r.client.Get()
+	defer func(conn redis.Conn) {
+		_ = conn.Close()
+	}(conn)
+	_, err := conn.Do("FLUSHALL")
+	return err
 }

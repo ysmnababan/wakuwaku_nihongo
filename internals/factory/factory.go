@@ -3,6 +3,7 @@ package factory
 import (
 	"gorm.io/gorm"
 
+	"wakuwaku_nihongo/config"
 	"wakuwaku_nihongo/internals/pkg/database"
 
 	"wakuwaku_nihongo/internals/pkg/redisutil"
@@ -30,7 +31,8 @@ func (f *Factory) SetupDb() {
 }
 
 func (f *Factory) SetupRedis() {
-	f.Redis = redisutil.NewRedis()
+	cfg := config.Get().Redis
+	f.Redis = redisutil.NewRedis(cfg)
 }
 
 func (f *Factory) SetupRepository() {
